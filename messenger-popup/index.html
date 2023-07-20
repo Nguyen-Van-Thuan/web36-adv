@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <!-- Import styls.css./start -->
+  <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+
+<body>
+  <h1>Xu ly su kien voi DOM</h1>
+
+  <!-- Cach 1: Them truc tiep -->
+  <button class="button-main" onclick="handleShow()">Click me 1!</button>
+
+
+  <!-- Cach 2: Them 1 su kien GIAN TIEP vao HTML -->
+  <button class="button-main btn2-js">Click me 2!</button>
+
+
+  <!-- Cach 3: Them 1 GIAN TIEP su kien vao HTML -->
+  <button class="button-main btn3-js">Click me 3!</button>
+
+
+  <button class="button-main btn4-js">Click me 4!</button>
+
+
+
+  <div class="main-content"></div>
+
+
+
+
+
+
+
+
+  <!-- messenger-popup -->
+  <div class="wrap-messgenger">
+
+    <div class="box-content">
+      <div class="close">x</div>
+      Noi dung
+    </div>
+
+    <button class="btn-mess">mess</button>
+
+  </div>
+
+
+
+
+
+
+
+
+
+  <!-- Cach 1: js inline html -->
+  <script>
+
+    // Dinh nghia function handleShow => xu ly logic sau khi nguoi dung click vao button
+    const handleShow = () => {
+      // logic
+      alert("Xin chao anh em web36"); //alert() phuong thuc co san hien thi 1 popup ra ben ngoai trinh duyet
+    }
+  </script>
+
+
+
+
+  <!-- Import main.js./start -->
+  <script src="./assets/js/main.js"></script>
+</body>
+
+</html>
