@@ -46,6 +46,11 @@
   right: 0;
   transition: .3s;
 }
+.wrap-messgenger .change-show {
+  bottom: 120px;
+  transition: .3s;
+}
+
 .close {
   position: absolute;
   top: -10px;

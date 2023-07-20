@@ -42,10 +42,29 @@ btn3.addEventListener("click", handleShow3);
 /* mousedown */
 // B1: Truy cap phan tu
 const btn4 = document.querySelector(".btn4-js");
-console.log(btn4);
+// console.log(btn4);
 btn4.addEventListener("mousemove", () => {
   alert("Event MouseDown");
-})
+});
+
+
+/* Event */ 
+// B1:
+const btn5 = document.querySelector(".btn5-js");
+// console.log(btn5);
+// B2:
+btn5.addEventListener("click", (e) => {
+  console.log(e); //Lay toa do
+});
+
+
+
+/* KeyBoard */
+document.addEventListener('keydown',(event)=>{
+  // alert('abc');
+  console.log(event.key); //Biet duoc nguoi dung bam phim nao
+  alert(event.key);
+});
 
 
 
@@ -67,15 +86,44 @@ const btnMess = document.querySelector(".btn-mess");
 const boxContent = document.querySelector(".box-content");
 const close = document.querySelector(".close");
 
+let isStatus = false; //Bien trang thai
 
+
+/* == Cach 1: ==*/ 
 //B2: Them su kien vao btnMess (Button)
-btnMess.addEventListener('click', () => {
-  // alert("hello 123");
-  boxContent.style.bottom = "120px";
+// btnMess.addEventListener('click', () => {
+
+//   isStatus = !isStatus; //Cong tac den
+
+//   if(isStatus == false) {
+//     boxContent.style.bottom = "-500px";
+//     boxContent.style.transition = ".3s";
+//   }else {
+//     boxContent.style.bottom = "120px";
+//     boxContent.style.transition = ".3s";
+//   }
+
+//   console.log(isStatus, "abc")
+// });
+
+
+// close.addEventListener('click', () => {
+//   boxContent.style.bottom = "-500px";
+//   boxContent.style.transition = ".0s";
+// })
+
+
+
+
+/*== Cach 2: ==*/ 
+btnMess.addEventListener("click", () => {
+  boxContent.classList.toggle("change-show");
   boxContent.style.transition = ".3s";
+
 });
 
+
 close.addEventListener('click', () => {
-  boxContent.style.bottom = "-500px";
+  boxContent.classList.remove("change-show");
   boxContent.style.transition = ".0s";
 })
