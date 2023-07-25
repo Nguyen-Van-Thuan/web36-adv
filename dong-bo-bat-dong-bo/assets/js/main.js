@@ -62,7 +62,7 @@
 //   setTimeout(()=> {
 //     callback();
 //   }, 4000)
-  
+
 // }
 
 // const congviec3 = (name, callback) => {
@@ -95,52 +95,168 @@
 // } );
 
 
-/* ====== Promise: Loi hua ===== */ 
-let money = 40;
-
-// Tao ra loi hua 1 <=> Cong viec 1
-let buyIphone = new Promise((resolve, reject) => { //resolve: Loi hua duoc thuc hien, reject: Loi hua khong duoc thuc hien
-  // 35tr la gia tien 1 chiec iphone
-  if(money > 35) {
-    resolve("Du tien mua ai phone day!");
-  }else {
-    reject("Kiem them tien di")
-  };
-
-});
 
 
-// Tao ra loi hua 2 <=> cong viec 2
-// gia su ipad cua minh la 3tr
-let buyIpad = new Promise((resolve, reject)=> {
+/* ====== Promise: Loi hua ===== */
+// let money = 50;
 
-  if((money - 35 -  3) > 0) {
-    resolve("Du tien mua ipad di");
-  }else {
-    reject("Ngheo chay tui roi");
-  }
-})
+// // Tao ra loi hua 1 <=> Cong viec 1
+// let buyIphone = new Promise((resolve, reject) => { //resolve: Loi hua duoc thuc hien, reject: Loi hua khong duoc thuc hien
 
-// Thuc thi loi hua
-buyIphone
-  .then((response)=>{ //Loi hua duoc thuc hien thanh cong
-    console.log(response);
-
-    // Thuc thi loi hua 2
-    return buyIpad;
-  })
-  .catch((error)=>{
-    console.log(error);
-  })
-  .finally(()=> {
-    console.log("Di ve nha thoi");
-  });
+//   // 35tr la gia tien 1 chiec iphone
+//   if(money > 35) {
+//     resolve("Du tien mua ai phone day!");
+//   }else {
+//     reject("Kiem them tien di")
+//   };
+// });
 
 
-  buyIpad
-    .then((response)=> {
-      console.log(response);
+// // Tao ra loi hua 2 <=> cong viec 2
+// // gia su ipad cua minh la 3tr
+// let buyIpad = new Promise((resolve, reject)=> {
+
+//   if((money - 35 -  3) >= 0) {
+//     resolve("Du tien mua ipad di");
+//   }else {
+//     reject("Ngheo chay tui roi");
+//   }
+// })
+
+// // Thuc thi loi hua
+// buyIphone
+//   .then((response)=>{ //Loi hua duoc thuc hien thanh cong
+//     console.log(response);
+
+//     // Thuc thi loi hua 2
+//     return buyIpad;
+//   })
+//   .catch((error)=>{
+//     console.log(error);
+//   })
+//   .finally(()=> {
+//     console.log("Di ve nha thoi");
+//   });
+
+
+// buyIpad
+//   .then((response)=> {
+//     console.log(response);
+//   })
+//   .catch((error)=> {
+//     console.log(error);
+//   })
+
+
+
+// Async Function
+
+// const fnA = async() => {
+//   // return Promise.resolve("123");
+//   return Promise.reject("Sai roi day");
+// }
+// // fnA();
+
+// fnA()
+//   .then((res)=> {
+//     console.log('1');
+//     console.log(res);
+//   })
+//   .catch((error)=> {
+//     console.log('2')
+//     console.log(error);
+//   })
+
+
+// async function fnA() {
+//   return Promise.resolve("123");
+// }
+
+// fnA().then((res)=>{
+//   console.log(res);
+// });
+/*
+function fnA {
+  return console.log("hello lop web36");
+}
+fnA();
+*/
+
+// const fnB = async() => {
+//   return "helo"
+// }
+
+// fnB()
+//   .then((res)=> {
+//     console.log(res);
+//   })
+//   .catch((error)=> {
+//     console.log(error);
+//   })
+
+
+// // B1: Truy cap phan tu
+// const HTML = document.querySelector("#await-js");
+// console.log(HTML);
+// const show = async() => {
+
+//   let myPromise = new Promise((resolve, reject) => {
+//     return resolve("web32");
+//   })
+//   // myPromise
+//   //   .then((res)=> {
+//   //     HTML.innerHTML = res;
+//   //   })
+//   //   .catch((error)=> {
+//   //     console.log(error)
+//   //   })
+//   // console.log(myPromise);
+//   document.querySelector("#await-js").innerHTML = await myPromise;
+// }
+// show();
+
+
+// /* await setTimout() */
+// const popupAlert = async() => {
+//   let timeOutPromise = new Promise((resolve, reject)=> {
+//     setTimeout(()=> {
+//       resolve("Hello 500 anh em!");
+//     }, 3000);
+//   });
+
+//   const result = await timeOutPromise;
+//   alert(result);
+// }
+
+// popupAlert();
+
+
+
+/* CALL API TU SERVER */
+
+
+// C1: Khong dung async/await
+const getApi = () => {
+  // Thuc hien 1 loi goi doc du lieu tu chuong trinh len server.
+  const res = axios.get(`https://fakestoreapi.com/products/`);
+  res
+    .then((response) => {
+      // console.log(response.data);
     })
-    .catch((error)=> {
+    .catch((error) => {
       console.log(error);
     })
+}
+getApi()
+
+// C2: Dung dung async/await
+const getApi2 = async () => {
+  try {
+    const res = await axios.get(`https://fakestoreapi.com/products/`);
+    console.log(res.data);
+  } catch (error) {
+    console.log(error);
+  }
+}
+getApi2();
+
