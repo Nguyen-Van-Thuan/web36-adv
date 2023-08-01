@@ -16,6 +16,7 @@
 
 
  Thao tac voi localStorage
+ 
     + Tao 1 du lieu: localStorage.setItem(key, value);
       - key: Ten cua du lieu minh can luu tru
       - value: Gia tri cua du lieu can luu tru
