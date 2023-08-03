@@ -69,6 +69,7 @@ const addItemToCart = (price, imageSrc) => {
   btnRemove.forEach((item)=> {
     item.addEventListener('click', ()=> {
       item.parentElement.remove();
+      updatePrice();
     })
   });
 
@@ -80,6 +81,7 @@ const addItemToCart = (price, imageSrc) => {
       if(isNaN(item.value) || (item.value <= 1)) {
         item.value = 1;
       }
+      updatePrice();
     })
   });
 
@@ -107,4 +109,5 @@ const updatePrice = () => {
   console.log(total);
 
   document.querySelector('.total-price').innerHTML = total;
+  document.querySelector('.cart-quantity').innerHTML = productRowEle.length;
 }
